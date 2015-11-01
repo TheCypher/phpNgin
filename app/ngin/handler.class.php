@@ -1,4 +1,5 @@
-<?php namespace Ngin\Handler;
+<?php namespace App\Ngin;
+include'router.class.php';
 /**
 * phpNgin - simple PHP framework
 *
@@ -10,16 +11,16 @@
 /**
 * handler
 */
-class Handler
+class Handler extends Router
 {
 	/**
 	* get and set needed page files
 	* @param
 	* @return IDK yet
 	*/
-	protected function loadPage()
+	public function loadPage($page)
 	{
-		// code...
+		$controller = self::getController($page);
 	}
 }
 ?>

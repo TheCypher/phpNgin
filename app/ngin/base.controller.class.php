@@ -11,11 +11,11 @@
 * baseController
 */
 
-class baseController
+Abstract class baseController
 {
 	/**
 	* All controllers must have an index method
 	*/
-	abstract function index();
+	abstract function index($view);
 }
 ?>
