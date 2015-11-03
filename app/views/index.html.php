@@ -51,7 +51,8 @@
 			            		'.$version[0].', <br>
 			            		'.$version[1].', <br>
 			            		'.$version[2].'
-		            		</h4>');
+		            		</h4>'
+		            	);
 		            ?>
 		        </div>
 		    </div>

@@ -1,4 +1,4 @@
-<?php
+<?php //namespace Engine\Version\Test
 /**
 * Version
 *

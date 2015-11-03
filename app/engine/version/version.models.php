@@ -1,4 +1,4 @@
-<?php
+<?php //namespace Engine\Version\Model;
 /**
 * Version
 *
@@ -6,7 +6,7 @@
 * @author 	Nickson Ariemba
 * @version 	Beta 1.0
 */
-class versionModels
+class VersionModels
 {
 	public function showVersionModel()
 	{
@@ -15,11 +15,11 @@ class versionModels
 		* @return Array
 		*/
 		$version = [
-			'version'=>"Beta 1.0",
+			'version'=>"Alpha 1.0",
 			'Author'=>"Nickson Ariemba",
 			'Date Created'=>"Nov,1,2015"
 		];
-		return($version);
+		return $version;
 	}
 }
 ?>

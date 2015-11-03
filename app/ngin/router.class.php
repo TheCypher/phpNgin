@@ -4,7 +4,28 @@
 *
 * @package	phpNgin
 * @author 	Nickson Ariemba
-* @version 	Beta 1.0
+* @version 	Alpha 1.0
+*
+* MIT LICENSE
+*
+* Permission is hereby granted, free of charge, to any person obtaining
+* a copy of this software and associated documentation files (the
+* "Software"), to deal in the Software without restriction, including
+* without limitation the rights to use, copy, modify, merge, publish,
+* distribute, sublicense, and/or sell copies of the Software, and to
+* permit persons to whom the Software is furnished to do so, subject to
+* the following conditions:
+*
+* The above copyright notice and this permission notice shall be
+* included in all copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+* NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+* LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+* OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+* WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 /**
@@ -18,17 +39,23 @@ class Router
 	*/
 	protected function checkController($page)
 	{
+		print_r($page);
 		$controllerPath = __SITE_PATH . '/app/controllers/'.$page['page'].'.controller.php';
+		$controller = $page['controller'].'Controller';
 		if (file_exists($controllerPath)) {
 			$return = [
 				'check'=>"1", 
-				'controllerPath'=>"$controllerPath"
+				'controllerPath'=>"$controllerPath",
+				'controller'=>"$controller"
 			];
 		}
 		else
 		{
+			$notFoundControllerPath = __SITE_PATH . '/app/controllers/nginControllers/notFound.controller.php';
 			$return = [
-				'check'=>"0"
+				'check'=>"0", 
+				'controllerPath'=>"$notFoundControllerPath",
+				'controller'=>"notFoundController"
 			];
 		}
 		return($return);
@@ -41,16 +68,16 @@ class Router
 	*/
 	protected function getController($page)
 	{
+		$page['controller'] = ucfirst($page['page']);
 		$checkController = self::checkController($page);
-		$check = $checkController['check'];
 
-		switch ($check) {
+		$baseController = __SITE_PATH . '/app/ngin/base.controller.class.php';
+		include_once $baseController;
+
+		switch ($checkController['check']) {
 			case '1':
-				$baseController = __SITE_PATH . '/app/ngin/base.controller.class.php';
-
-				include_once $baseController;
 				include_once $checkController['controllerPath'];
-				$controller = $page['page'].'Controller';
+				$controller = $checkController['controller'];
 				$controller = new $controller();
 
 				$view = __SITE_PATH . '/app/views/'.$page['page'].'.html.php';
@@ -58,16 +85,19 @@ class Router
 			break;
 			
 			case '0':
-				$controllerName = $page['page'];
-				print_r(
-					'
-						<center>
-							<h1>
-								Invalid controller "'.$controllerName.'"
-							</h1>
-						</center>
-					'
-				);
+				include_once $checkController['controllerPath'];
+				$controller = $checkController['controller'];
+				$controller = new $controller();
+
+				$viewPath = __SITE_PATH . '/app/views/nginViews/notFound.html.php';
+				$view = [
+					'view'=>"$viewPath",
+					'error'=> [
+						'controller'=>'INVALID CONTROLLER <b>"'.ucfirst($page['page']).'"</b> </br>',
+						'Other'=>""
+					]
+				];
+				$controller->index($view);
 			break;
 		}
 	}
