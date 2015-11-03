@@ -1,5 +1,5 @@
 <?php
-class NotFoundController extends BaseController
+class ErrorController extends BaseController
 {
 	public function index($view)
 	{

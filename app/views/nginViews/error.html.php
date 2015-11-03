@@ -25,7 +25,7 @@
                   <h3>
                     <?php
                       print(
-                        $view['error']['controller']
+                        $view['error']
                       );
                     ?>
                     <!-- <small>This information will let us know more about you.</small> -->

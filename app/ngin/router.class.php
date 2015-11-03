@@ -35,14 +35,15 @@ class Router
 {
 	/**
 	* Check if controller exists
-	* @param string
+	* @param array
+	* @return array
 	*/
 	protected function checkController($page)
 	{
-		print_r($page);
 		$controllerPath = __SITE_PATH . '/app/controllers/'.$page['page'].'.controller.php';
-		$controller = $page['controller'].'Controller';
+		
 		if (file_exists($controllerPath)) {
+			$controller = $page['controller'].'Controller';
 			$return = [
 				'check'=>"1", 
 				'controllerPath'=>"$controllerPath",
@@ -51,11 +52,11 @@ class Router
 		}
 		else
 		{
-			$notFoundControllerPath = __SITE_PATH . '/app/controllers/nginControllers/notFound.controller.php';
+			$errorControllerPath = __SITE_PATH . '/app/controllers/nginControllers/error.controller.php';
 			$return = [
 				'check'=>"0", 
-				'controllerPath'=>"$notFoundControllerPath",
-				'controller'=>"notFoundController"
+				'controllerPath'=>"$errorControllerPath",
+				'controller'=>"ErrorController"
 			];
 		}
 		return($return);
@@ -64,7 +65,7 @@ class Router
 
 	/**
 	* Get controller
-	* @param string
+	* @param array
 	*/
 	protected function getController($page)
 	{
@@ -89,13 +90,10 @@ class Router
 				$controller = $checkController['controller'];
 				$controller = new $controller();
 
-				$viewPath = __SITE_PATH . '/app/views/nginViews/notFound.html.php';
+				$viewPath = __SITE_PATH . '/app/views/nginViews/error.html.php';
 				$view = [
 					'view'=>"$viewPath",
-					'error'=> [
-						'controller'=>'INVALID CONTROLLER <b>"'.ucfirst($page['page']).'"</b> </br>',
-						'Other'=>""
-					]
+					'error'=> 'INVALID CONTROLLER <b>"'.ucfirst($page['page']).'"</b> </br>'
 				];
 				$controller->index($view);
 			break;
