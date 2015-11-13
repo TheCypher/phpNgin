@@ -1,5 +1,6 @@
 <?php
-	require("database.class.php");
+	$path = realpath(dirname());
+	require($path."/database.class.php");
 
 	// Creates the instance
 	$db = new Database();

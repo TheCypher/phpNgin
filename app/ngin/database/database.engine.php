@@ -4,8 +4,10 @@
 */
 
 use Database\Log;
-require("database.connect.php");
-require("database.log.php");
+
+$path = realpath(dirname());
+require($path."/database.connect.php");
+require($path."/database.log.php");
 class DatabaseEngine extends DatabaseConnect
 {
 	# @object, Object for logging exceptions	

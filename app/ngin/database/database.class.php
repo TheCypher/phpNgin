@@ -7,8 +7,9 @@
 * @version  0.2ab
 *
 */
+$path = realpath(dirname());
 
-require("database.engine.php");
+require($path."/database.engine.php");
 class Database extends DatabaseEngine
 {
     /**

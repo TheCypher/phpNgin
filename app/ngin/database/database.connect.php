@@ -22,7 +22,7 @@ class DatabaseConnect
 			'host'=>"localhost", 
 			'user'=>"root", 
 			'password'=>"root", 
-			'dbname'=>"test"
+			'dbname'=>"nicksonshoes"
 		];
 
 		$dsn = 'mysql:dbname='.$this->connect["dbname"].';host='.$this->connect["host"].'';
