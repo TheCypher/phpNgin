@@ -1,12 +1,12 @@
 <?php
+use Engine\Version\Version as Version;
+
 class IndexController extends BaseController
 {
 	public function index($view)
-	{
-		include_once __SITE_PATH . '/app/engine/version/version.class.php';
-		
-		$versionClass = new Version();
-		$version = $versionClass->showVersion();
+	{		
+		// code breaks here -> $versionClass = new Version();
+		//$version = $versionClass->showVersion();
 		$framework = ['name'=>"phpNgin"];
 
 		/*-- load view  --*/

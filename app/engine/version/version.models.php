@@ -1,4 +1,5 @@
-<?php //namespace Engine\Version\Model;
+<?php 
+namespace Engine\Version;
 /**
 * Version
 *

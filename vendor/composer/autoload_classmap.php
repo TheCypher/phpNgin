@@ -8,4 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Ngin\\Handler' => $baseDir . '/app/ngin/handler.class.php',
     'App\\Ngin\\Router' => $baseDir . '/app/ngin/router.class.php',
+    'Engine\\Version\\Version' => $baseDir . '/app/engine/version/version.class.php',
+    'Engine\\Version\\VersionModels' => $baseDir . '/app/engine/version/version.models.php',
+    'Engine\\Version\\VersionTest' => $baseDir . '/app/engine/version/version.test.php',
 );

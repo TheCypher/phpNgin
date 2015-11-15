@@ -1,4 +1,5 @@
-<?php //namespace Engine\Version;
+<?php 
+namespace Engine\Version;
 /**
 * Version
 *
@@ -6,9 +7,9 @@
 * @author 	Nickson Ariemba
 * @version 	Alpha 1.0
 */
-
 include_once"version.models.php";
-class Version extends versionModels
+
+class Version extends Engine\Version\VersionModels
 {
 	/**
 	* show version

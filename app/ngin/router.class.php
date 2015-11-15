@@ -1,4 +1,5 @@
-<?php namespace App\Ngin;
+<?php 
+namespace App\Ngin;
 /**
 * phpNgin - simple PHP framework
 *
