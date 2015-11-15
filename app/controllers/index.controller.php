@@ -5,8 +5,8 @@ class IndexController extends BaseController
 {
 	public function index($view)
 	{		
-		// code breaks here -> $versionClass = new Version();
-		//$version = $versionClass->showVersion();
+		$versionClass = new Version();
+		$version = $versionClass->showVersion();
 		$framework = ['name'=>"phpNgin"];
 
 		/*-- load view  --*/

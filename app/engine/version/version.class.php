@@ -7,9 +7,10 @@ namespace Engine\Version;
 * @author 	Nickson Ariemba
 * @version 	Alpha 1.0
 */
+use Engine\Version\VersionModels as VersionModels;
 include_once"version.models.php";
 
-class Version extends Engine\Version\VersionModels
+class Version extends VersionModels
 {
 	/**
 	* show version
