@@ -1,13 +1,14 @@
 <?php
+namespace App\Ngin\Database;
 /**
 * Database engine
 */
 
-use Database\Log;
+$site_path = realpath(dirname(__FILE__));
+require $site_path . '/../../../vendor/autoload.php';
+use App\Ngin\Database\DatabaseConnect as DatabaseConnect;
+use App\Ngin\Database\Log;
 
-$path = realpath(dirname());
-require($path."/database.connect.php");
-require($path."/database.log.php");
 class DatabaseEngine extends DatabaseConnect
 {
 	# @object, Object for logging exceptions	
@@ -19,11 +20,11 @@ class DatabaseEngine extends DatabaseConnect
 	# @object, PDO statement object
 	public $sQuery;
 
-	public function __construct()
+	public function __construct($database = null)
 	{
 		$this->log = new Log();
 		$this->parameters = array();
-		self::connect();	
+		self::databaseConnection($database);	
 	}
 
 

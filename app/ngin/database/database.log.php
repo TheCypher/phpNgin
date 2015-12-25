@@ -1,6 +1,5 @@
 <?php 
-namespace Database;
-
+namespace App\Ngin\Database;
 /**
 * Log 			A logger class which creates logs when an exception is thrown.
 * @author		Author: Vivek Wicky Aswal. (https://twitter.com/#!/VivekWickyAswal)

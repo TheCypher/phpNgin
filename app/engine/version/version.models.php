@@ -16,7 +16,7 @@ class VersionModels
 		* @return Array
 		*/
 		$version = [
-			'version'=>"Alpha 1.0",
+			'version'=>"Alpha 1.1",
 			'Author'=>"Nickson Ariemba",
 			'Date Created'=>"Nov,1,2015"
 		];

@@ -7,6 +7,11 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Engine\\Version\\' => array($baseDir . '/app/engine/version'),
+    'Engine\\Register\\' => array($baseDir . '/app/engine/register'),
+    'Engine\\PublicEngine\\' => array($baseDir . '/app/engine/publicEngine'),
+    'Engine\\Navbars\\' => array($baseDir . '/app/engine/navbars'),
+    'Engine\\Login\\' => array($baseDir . '/app/engine/login'),
     'Engine\\' => array($baseDir . '/app/engine'),
+    'App\\Ngin\\Database\\' => array($baseDir . '/app/ngin/database'),
     'App\\Ngin\\' => array($baseDir . '/app/ngin'),
 );

@@ -1,7 +1,11 @@
 <?php
-	$path = realpath(dirname());
-	require($path."/database.class.php");
+	error_reporting(-1);
+	ini_set('display_errors', 'On');
 
+	//$path = realpath(dirname());
+	require("database.class.php");
+
+	use App\Ngin\Database\Database as Database;
 	// Creates the instance
 	$db = new Database();
 		
@@ -22,7 +26,7 @@
 	//$person 	 =     $db->query("SELECT * FROM users");
 	$single  =     $db->row(
 		"SELECT firstname FROM users WHERE Id = :id ", 
-		array('id' => '2' )
+		array('id' => '2'),PDO::FETCH_NUM
 	);
 
 	/*

@@ -1,15 +1,20 @@
 <?php
+namespace App\Ngin\Database;
 /**
 *  DB - A simple database class 
 *
 * @author	Author: Vivek Wicky Aswal. (https://twitter.com/#!/VivekWickyAswal)
+* @author 	Nickson Ariemba
 * @git 		https://github.com/indieteq/PHP-MySQL-PDO-Database-Class
 * @version  0.2ab
 *
 */
-$path = realpath(dirname());
 
-require($path."/database.engine.php");
+$site_path = realpath(dirname(__FILE__));
+require $site_path . '/../../../vendor/autoload.php';
+use App\Ngin\Database\DatabaseEngine as DatabaseEngine;
+use PDO;
+
 class Database extends DatabaseEngine
 {
     /**
@@ -19,9 +24,9 @@ class Database extends DatabaseEngine
 	*	2. Connect to database.
 	*	3. Creates the parameter array.
 	*/
-	public function __construct()
+	public function __construct($database = null)
 	{
-		parent::__construct();	
+		parent::__construct($database);	
 	}
 		
 
@@ -64,10 +69,25 @@ class Database extends DatabaseEngine
 	*   @param  int    $fetchmode
 	*	@return array
 	*/	
-	public function row($query,$params = null,$fetchmode = PDO::FETCH_ASSOC)
+	public function row($query,$params = null,$fetchmode = PDO::FETCH_OBJ)
 	{				
 		self::Init($query,$params);
 		return $this->sQuery->fetch($fetchmode);			
+	}
+
+
+    /**
+	*	Returns an int which represents number of rows from the result set 
+	*
+	*	@param  string $query
+	*	@param  array  $params
+	*   @param  int    $fetchmode
+	*	@return int
+	*/	
+	public function rowCount($query,$params = null,$fetchmode = PDO::FETCH_OBJ)
+	{				
+		self::Init($query,$params);
+		return $this->sQuery->rowCount($fetchmode);			
 	}
 
 

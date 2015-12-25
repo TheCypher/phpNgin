@@ -17,9 +17,14 @@
 
 	"autoload": {
         "psr-4": {
-            "App\\Ngin\\": "app/ngin/",
-            "Engine\\": "app/engine/",
-            "Engine\\Version\\": "app/engine/version/"
+            "App\\Ngin\\": 				"app/ngin/",
+            "App\\Ngin\\Database\\": 		"app/ngin/database/",
+            "Engine\\": 				"app/engine/",
+            "Engine\\Version\\":		"app/engine/version/",
+            "Engine\\Navbars\\":		"app/engine/navbars/",
+            "Engine\\Login\\":			"app/engine/login/",
+            "Engine\\Register\\":		"app/engine/register/",
+            "Engine\\PublicEngine\\":	"app/engine/publicEngine/"
         }
 	}
 }

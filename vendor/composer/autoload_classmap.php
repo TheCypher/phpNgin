@@ -6,8 +6,22 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Ngin\\Database\\Database' => $baseDir . '/app/ngin/database/database.class.php',
+    'App\\Ngin\\Database\\DatabaseConnect' => $baseDir . '/app/ngin/database/database.connect.php',
+    'App\\Ngin\\Database\\DatabaseEngine' => $baseDir . '/app/ngin/database/database.engine.php',
+    'App\\Ngin\\Database\\Log' => $baseDir . '/app/ngin/database/database.log.php',
     'App\\Ngin\\Handler' => $baseDir . '/app/ngin/handler.class.php',
     'App\\Ngin\\Router' => $baseDir . '/app/ngin/router.class.php',
+    'Engine\\Front\\Login' => $baseDir . '/app/engine/login/login.class.php',
+    'Engine\\Front\\Models\\LoginModels' => $baseDir . '/app/engine/login/login.models.php',
+    'Engine\\Front\\Models\\NavbarModels' => $baseDir . '/app/engine/navbars/navbars.models.php',
+    'Engine\\Front\\Models\\RegisterModels' => $baseDir . '/app/engine/register/register.models.php',
+    'Engine\\Front\\Navbars' => $baseDir . '/app/engine/navbars/navbars.class.php',
+    'Engine\\Front\\Register' => $baseDir . '/app/engine/register/register.class.php',
+    'Engine\\Front\\Test\\LoginTest' => $baseDir . '/app/engine/login/login.test.php',
+    'Engine\\Front\\Test\\NavbarTest' => $baseDir . '/app/engine/navbars/navbars.test.php',
+    'Engine\\Front\\Test\\RegisterTest' => $baseDir . '/app/engine/register/register.test.php',
+    'Engine\\PublicEngine\\PublicEngine' => $baseDir . '/app/engine/publicEngine/public.engine.class.php',
     'Engine\\Version\\Version' => $baseDir . '/app/engine/version/version.class.php',
     'Engine\\Version\\VersionModels' => $baseDir . '/app/engine/version/version.models.php',
     'Engine\\Version\\VersionTest' => $baseDir . '/app/engine/version/version.test.php',
